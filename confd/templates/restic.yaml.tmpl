@@ -1,0 +1,9 @@
+jobs:
+  - name: restic-init
+    command: "restic snapshots || restic init"
+    concurrencyPolicy: Forbid
+    schedule: "@reboot"
+  - name: restic-backup
+    command: "restic backup --host {{getv "/restic/hostname"}} {{getv "/restic/path"}}"
+    concurrencyPolicy: Forbid
+    schedule: "{{getv "/restic/schedule" "0 * * * *"}}"

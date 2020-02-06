@@ -1,0 +1,8 @@
+[template]
+src  = "restic.yaml.tmpl"
+dest = "/etc/yacron.d/restic.yaml"
+keys = [
+    "/restic/schedule",
+    "/restic/hostname",
+    "/restic/path"
+]
